@@ -1,25 +1,28 @@
-html, body {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Roboto, sans-serif;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
   width: 100%;
-  height: 100%;
+  text-align: center;
+}
+
+#messages {
+  list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: sans-serif;
+#messages li {
+  padding: 5px 10px;
 }
 
-a {
-  text-decoration: none;
-}
-
-.container {
-  text-align: center;
-}
-
-.subtitle {
-  color: gray;
+#messages li:nth-child(odd) {
+  background: #eee;
 }

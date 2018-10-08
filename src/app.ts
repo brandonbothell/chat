@@ -2,10 +2,12 @@
 // All stuff below is just to show you how it works. You can delete all of it.
 
 // Use new ES6 modules syntax for everything.
-import * as os from 'os' // native node.js module
 import { remote } from 'electron' // native electron module
 import * as jetpack from 'fs-jetpack' // module loaded from npm
+import * as io from 'socket.io-client'
 import env from './env'
+
+const socket = io.connect('https://macho.ninja/chat')
 
 console.log('Loaded environment variables:', env)
 
@@ -17,7 +19,18 @@ let appDir = jetpack.cwd(app.getAppPath())
 console.log('The author of this app is:', appDir.read('package.json', 'json').author)
 
 document.addEventListener('DOMContentLoaded', function () {
-  document.getElementById('greet').innerHTML = 'Hello World!'
-  document.getElementById('platform-info').innerHTML = os.platform()
-  document.getElementById('env-name').innerHTML = env.name
+  const form = document.getElementById('form') as HTMLFormElement
+  form.onsubmit = event => {
+    event.preventDefault()
+
+    const message = document.getElementById('message') as HTMLInputElement
+    socket.emit('chatMessage', message.value)
+    console.log(`Sent message ${message.value}`)
+    message.value = ''
+  }
+
+  socket.on('chatMessage', (message: string) => {
+    const messages = document.getElementById('messages') as HTMLUListElement
+    messages.appendChild(document.createElement('li')).textContent = message
+  })
 })
