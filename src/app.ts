@@ -7,7 +7,7 @@ import * as jetpack from 'fs-jetpack' // module loaded from npm
 import * as io from 'socket.io-client'
 import env from './env'
 
-const socket = io.connect('https://macho.ninja/chat')
+const socket = io.connect('https://macho.ninja:8000')
 
 console.log('Loaded environment variables:', env)
 
