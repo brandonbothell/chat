@@ -16,6 +16,9 @@
       "package.json"
     ]
   },
+  "repository": {
+    "url": "https://github.com/jasonhaxstuff/chat"
+  },
   "scripts": {
     "postinstall": "install-app-deps",
     "build": "gulp build",
