@@ -4,10 +4,11 @@
 // Use new ES6 modules syntax for everything.
 import { remote } from 'electron' // native electron module
 import * as jetpack from 'fs-jetpack' // module loaded from npm
-import * as io from 'socket.io-client'
+import * as WebSocket from 'ws'
 import env from './env'
 
-const socket = io.connect('https://macho.ninja:8000')
+// const socket = io.connect('ws://https://macho.ninja/chat', { rejectUnauthorized: false })
+const ws = new WebSocket('wss://www.macho.ninja/chat/')
 
 console.log('Loaded environment variables:', env)
 
@@ -24,13 +25,19 @@ document.addEventListener('DOMContentLoaded', function () {
     event.preventDefault()
 
     const message = document.getElementById('message') as HTMLInputElement
-    socket.emit('chatMessage', message.value)
+    ws.send('message:' + message.value)
     console.log(`Sent message ${message.value}`)
     message.value = ''
   }
 
-  socket.on('chatMessage', (message: string) => {
-    const messages = document.getElementById('messages') as HTMLUListElement
-    messages.appendChild(document.createElement('li')).textContent = message
+  ws.on('message', (message: string) => {
+    if (message.startsWith('message:')) {
+      const msg = message.substring(8, message.length)
+      const messages = document.getElementById('messages') as HTMLUListElement
+
+      messages.appendChild(document.createElement('li')).textContent = msg
+    } else {
+      console.log('Message from websocket: ' + message)
+    }
   })
 })
