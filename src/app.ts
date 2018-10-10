@@ -19,12 +19,13 @@ document.addEventListener('DOMContentLoaded', function () {
   const nicknameInput = document.getElementById('nickname') as HTMLInputElement
   const nickname = window.localStorage.getItem('nickname')
 
+  const elems = document.querySelectorAll('.modal')
+  instances = M.Modal.init(elems, { dismissible: false, onCloseEnd: onNicknameChange })
+
   if (nickname) {
     nicknameInput.value = nickname
     onNicknameChange()
   } else {
-    const elems = document.querySelectorAll('.modal')
-    instances = M.Modal.init(elems, { dismissible: false, onCloseEnd: onNicknameChange })
     instances[0].open()
   }
 
@@ -34,6 +35,10 @@ document.addEventListener('DOMContentLoaded', function () {
     event.preventDefault()
 
     const message = document.getElementById('message') as HTMLInputElement
+
+    if (message.value === '' || nickname === '') {
+      return
+    }
 
     ws.send(JSON.stringify({ message: message.value, nickname }))
     console.log(`Sent message ${message.value}`)
