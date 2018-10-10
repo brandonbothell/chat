@@ -22,6 +22,10 @@
     "7zip-bin-mac" "~1.0.1"
     "7zip-bin-win" "~2.1.1"
 
+"@types/cash@*":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@types/cash/-/cash-0.0.1.tgz#55889f346e3db6acb8cb9c64cc3580cf1d6dbf1a"
+
 "@types/electron@^1.6.10":
   version "1.6.10"
   resolved "https://registry.yarnpkg.com/@types/electron/-/electron-1.6.10.tgz#7e87888ed3888767cca68e92772c2c8ea46bc873"
@@ -31,6 +35,19 @@
 "@types/events@*":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@types/events/-/events-1.2.0.tgz#81a6731ce4df43619e5c8c945383b3e62a89ea86"
+
+"@types/jquery@*":
+  version "3.3.14"
+  resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-3.3.14.tgz#7c78e18f8c4bf9a8eae1de62815493ab1d7cc04f"
+  dependencies:
+    "@types/sizzle" "*"
+
+"@types/materialize-css@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@types/materialize-css/-/materialize-css-1.0.4.tgz#45815a6c817e21da3e243a1914a3313e4b9b828f"
+  dependencies:
+    "@types/cash" "*"
+    "@types/jquery" "*"
 
 "@types/node@*":
   version "10.11.6"
@@ -43,6 +60,10 @@
 "@types/node@^8.0.24":
   version "8.10.30"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-8.10.30.tgz#2c82cbed5f79d72280c131d2acffa88fbd8dd353"
+
+"@types/sizzle@*":
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/@types/sizzle/-/sizzle-2.3.2.tgz#a811b8c18e2babab7d542b3365887ae2e4d9de47"
 
 "@types/ws@^6.0.1":
   version "6.0.1"
@@ -2751,6 +2772,10 @@ map-visit@^1.0.0:
   resolved "https://registry.yarnpkg.com/map-visit/-/map-visit-1.0.0.tgz#ecdca8f13144e660f1b5bd41f12f3479d98dfb8f"
   dependencies:
     object-visit "^1.0.0"
+
+materialize-css@^1.0.0-rc.2:
+  version "1.0.0-rc.2"
+  resolved "https://registry.yarnpkg.com/materialize-css/-/materialize-css-1.0.0-rc.2.tgz#b9e6b18f698c6ef77bb6b628d59147faf131eff5"
 
 math-random@^1.0.1:
   version "1.0.1"

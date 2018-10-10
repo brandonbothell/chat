@@ -6,7 +6,7 @@
 import { app, BrowserWindow, screen } from 'electron'
 import * as jetpack from 'fs-jetpack'
 
-export default function (name, options) {
+export function createWindow (name, options) {
 
   const userDataDir = jetpack.cwd(app.getPath('userData'))
   const stateStoreFile = 'window-state-' + name + '.json'

@@ -1,8 +1,8 @@
 {
   "name": "chat",
   "productName": "Chat",
-  "description": "An app for chatting with Socket.IO",
-  "version": "0.0.1",
+  "description": "An app for chatting with websockets.",
+  "version": "0.0.2",
   "author": "Jason Bothell <shadowmanguyyt@gmail.com>",
   "copyright": "© 2018, JasonHaxStuff",
   "homepage": "https://www.macho.ninja",
@@ -30,6 +30,7 @@
   "dependencies": {
     "@types/electron": "^1.6.10",
     "fs-jetpack": "^2.1.1",
+    "materialize-css": "^1.0.0-rc.2",
     "run-sequence": "^1.2.2",
     "tslint": "^5.11.0",
     "tslint-config-standard": "^8.0.1",
@@ -37,6 +38,7 @@
     "ws": "^6.1.0"
   },
   "devDependencies": {
+    "@types/materialize-css": "^1.0.4",
     "@types/node": "^7.0.7",
     "@types/ws": "^6.0.1",
     "chai": "^3.5.0",
